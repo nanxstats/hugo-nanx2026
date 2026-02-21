@@ -5,8 +5,8 @@
     <header class="mb-14">
         <h1 class="text-3xl lg:text-4xl font-sans tracking-tight text-ink font-medium">{{ .Title }}</h1>
         {{ if and (not .Date.IsZero) (not (eq .Type "page")) }}
-        <div class="mt-4 text-zinc-500 font-sans text-sm tracking-wide">
-            {{ .Date.Format "Jan 02, 2006" }}
+        <div class="mt-4 text-zinc-500 font-sans text-sm tracking-wide tabular-nums">
+            {{ .Date.Format "Jan 2, 2006" }}
         </div>
         {{ end }}
     </header>
