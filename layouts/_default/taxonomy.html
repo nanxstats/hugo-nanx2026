@@ -1,26 +1,25 @@
 {{ define "main" }}
 {{ partial "header" . }}
 
-<div class="content">
-    <div class="mx-auto max-w-content px-6">
-        <div class="prose">
-            {{ partial "content" . }}
-        </div>
+<main class="content my-10 lg:my-20 max-w-[65ch] mx-auto w-full px-4 sm:px-6">
+    <div class="prose prose-zinc max-w-none">
+        {{ partial "content" . }}
+    </div>
 
-        <div class="posts">
-            <h1>Posts about {{ .Title }}</h1>
-            <hr>
-            <ul class="list-none pl-0">
-                {{ range .Data.Pages.GroupByDate "2006" "desc"}}
-                <li class="groupby">{{ .Key }}</li>
+    <div class="mt-8 pt-8">
+        <h1 class="text-3xl lg:text-4xl font-sans tracking-tight text-ink font-medium mb-8">Posts about {{ .Title }}</h1>
+        <ul class="list-none pl-0 space-y-8">
+            {{ range .Data.Pages.GroupByDate "2006" "desc"}}
+            <li class="font-sans text-xl font-medium text-ink tracking-tight mb-4">{{ .Key }}</li>
+            <div class="space-y-4">
                 {{ range sort .Pages "Date" "desc" }}
                 {{ partial "list" . }}
                 {{ end }}
-                {{ end }}
-            </ul>
-        </div>
+            </div>
+            {{ end }}
+        </ul>
     </div>
-</div>
+</main>
 
 {{ partial "footer" . }}
 {{ end }}
