@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ partial "header" . }}
+
+<div class="content">
+    <div class="mx-auto max-w-content px-6">
+        <div class="prose">
+            {{ partial "content" . }}
+        </div>
+
+        <div class="posts">
+            <h1>Posts about {{ .Title }}</h1>
+            <hr>
+            <ul class="list-none pl-0">
+                {{ range .Data.Pages.GroupByDate "2006" "desc"}}
+                <li class="groupby">{{ .Key }}</li>
+                {{ range sort .Pages "Date" "desc" }}
+                {{ partial "list" . }}
+                {{ end }}
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{{ partial "footer" . }}
+{{ end }}

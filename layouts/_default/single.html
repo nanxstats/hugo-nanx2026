@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ partial "header" . }}
+
+<main class="content my-10 lg:my-20 max-w-[65ch] mx-auto w-full px-4 sm:px-6">
+    <header class="mb-14">
+        <h1 class="text-3xl lg:text-4xl font-sans tracking-tight text-ink font-medium">{{ .Title }}</h1>
+        {{ if and (not .Date.IsZero) (not (eq .Type "page")) }}
+        <div class="mt-4 text-zinc-500 font-sans text-sm tracking-wide">
+            {{ .Date.Format "Jan 02, 2006" }}
+        </div>
+        {{ end }}
+    </header>
+    <article class="prose prose-zinc max-w-none">
+        {{ partial "content" . }}
+    </article>
+</main>
+
+{{ partial "footer" . }}
+{{ end }}

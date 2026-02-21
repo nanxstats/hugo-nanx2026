@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ partial "header" . }}
+
+<div class="content">
+    <div class="mx-auto max-w-content px-6">
+        <div class="prose">
+            {{ partial "content" . }}
+        </div>
+
+        <div class="posts">
+            <h1>Sections</h1>
+            <ul>
+                {{ range sort .Pages "Title" "asc" }}
+                <li>
+                    <a href="{{ .Permalink }}"><span>{{ .Title }}</span></a>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{{ partial "footer" . }}
+{{ end }}

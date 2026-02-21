@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ partial "header" . }}
+
+<main class="content my-10 lg:my-20 max-w-[65ch] mx-auto w-full px-4 sm:px-6">
+    <div class="prose prose-zinc">
+        {{ partial "content" . }}
+    </div>
+
+    <div class="mt-8 pt-8">
+        <ul class="list-none pl-0 space-y-8">
+            {{ range .Data.Pages.GroupByDate "2006" "desc"}}
+            <li class="font-sans text-xl font-medium text-ink tracking-tight mb-4">{{ .Key }}</li>
+            <div class="space-y-4">
+                {{ range sort .Pages "Date" "desc" }}
+                {{ partial "list" . }}
+                {{ end }}
+            </div>
+            {{ end }}
+        </ul>
+    </div>
+</main>
+
+{{ partial "footer" . }}
+{{ end }}

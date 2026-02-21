@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ partial "header" . }}
+
+<div class="content">
+    <div class="mx-auto max-w-content px-6">
+        <h1>Tags</h1>
+        <hr>
+        <ul>
+            {{ range .Site.Taxonomies.tags }}
+            <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
+            {{ end }}
+        </ul>
+    </div>
+</div>
+
+{{ partial "footer" . }}
+{{ end }}

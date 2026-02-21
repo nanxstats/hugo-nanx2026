@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ block "title" . }}{{ if .IsHome }} {{ .Site.Title }} {{ else }} {{ .Title }} - {{ .Site.Title }} {{ end
+        }}{{ end }}</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="{{ .Description | default .Site.Params.description }}" />
+
+    {{/* Open Graph Protocol - Used by Facebook, LinkedIn, and others */}}
+    <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="{{ .Site.Title }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}" />
+    <meta property="og:description" content="{{ .Description | default .Site.Params.description }}" />
+    {{- $ogImage := .Params.meta_img | default .Params.image | default .Site.Params.logofile }}
+    {{- if $ogImage }}
+    {{- $imageURL := $ogImage }}
+    {{- if not (hasPrefix $ogImage "http") }}
+    {{- $imageURL = printf "%s%s" (strings.TrimSuffix "/" .Site.BaseURL) (printf "/%s" (strings.TrimPrefix "/"
+    $ogImage)) }}
+    {{- end }}
+    <meta property="og:image" content="{{ $imageURL }}" />
+    {{- if hasPrefix $imageURL "https" }}
+    <meta property="og:image:secure_url" content="{{ $imageURL }}" />
+    {{- end }}
+    {{- end }}
+    {{- if .IsPage }}
+    <meta property="article:published_time" content="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" }}" />
+    <meta property="article:modified_time" content="{{ .Lastmod.Format " 2006-01-02T15:04:05Z07:00" }}" />
+    {{- if .Params.author }}
+    <meta property="article:author" content="{{ .Params.author }}" />
+    {{- end }}
+    {{- end }}
+
+    {{/* Twitter/X Card tags */}}
+    <meta name="twitter:card" content="{{ .Params.cardtype | default " summary_large_image" }}" />
+    {{ if .Site.Params.twitter }}
+    <meta name="twitter:site" content="@{{ .Site.Params.twitter }}">
+    <meta name="twitter:creator" content="@{{ .Site.Params.twitter }}">
+    {{ end }}
+    <meta name="twitter:title" content="{{ .Title | default .Site.Title }}" />
+    <meta name="twitter:description" content="{{ .Description | default .Site.Params.description }}" />
+    {{- if $ogImage }}
+    {{- $twitterImage := $ogImage }}
+    {{- if not (hasPrefix $ogImage "http") }}
+    {{- $twitterImage = printf "%s%s" (strings.TrimSuffix "/" .Site.BaseURL) (printf "/%s" (strings.TrimPrefix "/"
+    $ogImage)) }}
+    {{- end }}
+    <meta name="twitter:image" content="{{ $twitterImage }}" />
+    <meta name="twitter:image:alt" content="{{ .Title | default .Site.Title }}" />
+    {{- end }}
+
+    {{/* LinkedIn specific - uses Open Graph primarily */}}
+    <meta property="og:linkedin:actor" content="{{ .Site.Params.linkedin | default .Site.Params.twitter }}" />
+
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <!-- Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Martina Plantijn"', 'Newsreader', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+                        sans: ['"Instrument Sans"', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+                        mono: ['"Liga Noto Sans Mono"', 'ui-monospace', 'SFMono-Regular', '"SF Mono"', 'Menlo', 'Consolas', 'monospace'],
+                    },
+                    colors: {
+                        paper: '#fdfdfd',
+                        ink: '#1c1c1c',
+                        accent: '#991b1b', /* Crimson */
+                    },
+                    typography: {
+                        DEFAULT: {
+                            css: {
+                                maxWidth: 'none',
+                                color: '#1c1c1c',
+                                '--tw-prose-body': '#1c1c1c',
+                                '--tw-prose-headings': '#1c1c1c',
+                                '--tw-prose-links': '#991b1b',
+                                '--tw-prose-bold': '#111827',
+                                '--tw-prose-counters': '#71717a',
+                                '--tw-prose-bullets': '#d4d4d8',
+                                '--tw-prose-hr': '#e4e4e7',
+                                '--tw-prose-quotes': '#1c1c1c',
+                                '--tw-prose-quote-borders': '#d4d4d8',
+                                '--tw-prose-captions': '#71717a',
+                                '--tw-prose-code': '#1c1c1c',
+                                '--tw-prose-pre-code': '#1c1c1c',
+                                '--tw-prose-pre-bg': '#fdfdfd',
+                                '--tw-prose-th-borders': '#d4d4d8',
+                                '--tw-prose-td-borders': '#e4e4e7',
+                                'pre': {
+                                    color: '#1c1c1c',
+                                    backgroundColor: '#fdfdfd !important',
+                                    border: '1px solid #e4e4e7',
+                                },
+                                a: {
+                                    color: '#991b1b',
+                                    textDecoration: 'none',
+                                    fontWeight: '400',
+                                    borderBottom: '1px solid transparent',
+                                    transition: 'border-color 0.2s ease, color 0.2s ease',
+                                },
+                                'a:hover': {
+                                    color: '#991b1b !important',
+                                    borderBottomColor: '#991b1b !important',
+                                },
+                                h1: { fontFamily: '"Instrument Sans", sans-serif', fontWeight: '500', letterSpacing: '-0.025em' },
+                                h2: { fontFamily: '"Instrument Sans", sans-serif', fontWeight: '500', letterSpacing: '-0.025em', marginTop: '2em' },
+                                h3: { fontFamily: '"Instrument Sans", sans-serif', fontWeight: '500' },
+                                h4: { fontFamily: '"Instrument Sans", sans-serif', fontWeight: '500' },
+                                blockquote: {
+                                    fontStyle: 'italic',
+                                    fontWeight: '400',
+                                    borderLeftWidth: '2px',
+                                },
+                                'code::before': { content: 'none' },
+                                'code::after': { content: 'none' },
+                                ':not(pre) > code': {
+                                    fontWeight: '400',
+                                    color: '#1c1c1c !important',
+                                    backgroundColor: '#f4f4f5 !important',
+                                    padding: '0.2em 0.4em',
+                                    borderRadius: '0.25rem',
+                                    fontSize: '0.875em',
+                                },
+                            },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .tufte-grid {
+                display: grid;
+                grid-template-columns: 1fr min(65ch, 100%) 1fr;
+                column-gap: 2rem;
+            }
+            .tufte-grid > * {
+                grid-column: 2;
+            }
+            .tufte-grid > .full-width {
+                grid-column: 1 / -1;
+            }
+            .tufte-grid > .margin-note {
+                grid-column: 3;
+                font-family: "Instrument Sans", sans-serif;
+                font-size: 0.875rem;
+                line-height: 1.4;
+                color: #52525b; /* zinc-600 */
+                margin-top: 0.25rem;
+            }
+            @media (max-width: 1024px) {
+                .tufte-grid {
+                    grid-template-columns: 1rem 1fr 1rem;
+                }
+                .tufte-grid > .margin-note {
+                    grid-column: 2;
+                    margin-top: 0.5rem;
+                    margin-bottom: 1rem;
+                    padding-left: 1rem;
+                    border-left: 2px solid #e4e4e7;
+                }
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/custom.css" />
+
+    {{ if .Site.Params.highlightjs }}
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/textmate.css" />
+    {{ end }}
+
+    {{ if .Site.Params.progressively }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.css"
+        integrity="sha512-TdJkMXwjtS9Gb8rN919K1JVdUv2+q5YHsKXPtJGDP79t1Nd5oCZy5mFA6Nr85Dsp6wJ1SUQgOyHPDulLzTjDcQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{ end }}
+
+    <link rel="shortcut icon"
+        href="{{ if .Site.Params.faviconfile }}{{ .Site.Params.faviconfile | absURL }}{{ else }}{{ .Site.BaseURL }}img/favicon.ico{{ end }}">
+
+    {{ with .OutputFormats.Get "RSS" }}
+    <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+    {{ end }}
+</head>
+
+<body class="bg-paper text-ink font-serif antialiased selection:bg-zinc-200">
+    {{ block "main" . }}{{ end }}
+
+    {{ if .Site.Params.highlightjs }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
+        integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{ range .Site.Params.highlightjslanguages }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/{{.}}.min.js" defer></script>
+    {{ end }}
+    <script>
+        window.addEventListener('load', function () {
+            hljs.highlightAll();
+        }, true);
+    </script>
+    {{ end }}
+
+    {{ if .Site.Params.progressively }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/progressively/1.2.5/progressively.min.js"
+        integrity="sha512-JHDcp2sDHZvbTtwRHZM4sayXF89201gAperAFvLdoqDAMwMTm2YYByGe/GaKGwoESsDCA2bH9yBF2njFfrBDgg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        window.addEventListener('load', function () {
+            progressively.init({ delay: 30, throttle: 50 });
+        }, true);
+    </script>
+    {{ end }}
+
+    {{ template "_internal/google_analytics_async.html" . }}
+    {{ if .Site.Params.uselatex }}
+    {{ partial "footer_mathjax.html" . }}
+    {{ end }}
+</body>
+
+</html>

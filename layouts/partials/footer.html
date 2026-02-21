@@ -1,0 +1,51 @@
+<footer class="mt-20 mb-10 text-center font-sans text-sm text-zinc-500 tracking-wide">
+    <div class="tufte-grid">
+        <div class="flex flex-col items-center gap-4">
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+                {{ if .Site.Params.contact }}
+                <a href="mailto:{{ .Site.Params.contact }}" class="hover:text-accent transition-colors">Contact</a>
+                {{ end }}
+                {{ if .Site.Params.github }}
+                <a href="https://github.com/{{ .Site.Params.github }}" target="_blank" rel="noopener"
+                    class="hover:text-accent transition-colors">GitHub</a>
+                {{ end }}
+                {{ if .Site.Params.gitlab }}
+                <a href="https://gitlab.com/{{ .Site.Params.gitlab }}" target="_blank" rel="noopener"
+                    class="hover:text-accent transition-colors">GitLab</a>
+                {{ end }}
+                {{ if .Site.Params.medium }}
+                <a href="https://medium.com/@{{ .Site.Params.medium }}" target="_blank" rel="noopener"
+                    class="hover:text-accent transition-colors">Medium</a>
+                {{ end }}
+                {{ if .Site.Params.linkedin }}
+                <a href="https://www.linkedin.com/in/{{ .Site.Params.linkedin }}" target="_blank" rel="noopener"
+                    class="hover:text-accent transition-colors">LinkedIn</a>
+                {{ end }}
+                {{ if .Site.Params.bluesky }}
+                <a href="https://bsky.app/profile/{{ .Site.Params.bluesky }}.bsky.social" target="_blank" rel="noopener"
+                    class="hover:text-accent transition-colors">Bluesky</a>
+                {{ end }}
+                {{ if .Site.Params.twitter }}
+                <a href="https://twitter.com/{{ .Site.Params.twitter }}" target="_blank" rel="noopener"
+                    class="hover:text-accent transition-colors">Twitter</a>
+                {{ end }}
+                {{ if .Site.Params.mastodon }}
+                <a href="{{ .Site.Params.mastodon }}" target="_blank" rel="noopener"
+                    class="hover:text-accent transition-colors">Mastodon</a>
+                {{ end }}
+                {{ if .Site.Params.colophon }}
+                <a href="{{ .Site.Params.colophon }}" class="hover:text-accent transition-colors">Colophon</a>
+                {{ end }}
+                {{ with .OutputFormats.Get "RSS" }}
+                <a href="{{ .Permalink }}" class="hover:text-accent transition-colors">RSS</a>
+                {{ end }}
+            </div>
+
+            {{ if .Site.Params.copyright }}
+            <div class="mt-2">
+                {{ .Site.Params.copyright }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</footer>

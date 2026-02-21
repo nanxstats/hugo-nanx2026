@@ -1,0 +1,317 @@
+/* Typography */
+
+/* ==========================================================================
+   LICENSE
+   The font binaries of "Martina Plantijn" referenced here
+   are proprietary and licensed to the owner of nanx.me.
+   They may NOT be copied or redistributed.
+   ========================================================================== */
+
+@font-face {
+    font-display: swap;
+    font-family: "Instrument Sans";
+    src: url("fonts/InstrumentSans-VF.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Instrument Sans";
+    src: url("fonts/InstrumentSans-Italic-VF.woff2") format("woff2");
+    font-weight: 400 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Martina Plantijn";
+    src: url("https://nanx.me/fonts/martina-plantijn/martina-plantijn-regular.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Martina Plantijn";
+    src: url("https://nanx.me/fonts/martina-plantijn/martina-plantijn-italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Martina Plantijn";
+    src: url("https://nanx.me/fonts/martina-plantijn/martina-plantijn-medium.woff2") format("woff2");
+    font-weight: 500;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Martina Plantijn";
+    src: url("https://nanx.me/fonts/martina-plantijn/martina-plantijn-medium-italic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Martina Plantijn";
+    src: url("https://nanx.me/fonts/martina-plantijn/martina-plantijn-bold.woff2") format("woff2");
+    font-weight: 700;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Martina Plantijn";
+    src: url("https://nanx.me/fonts/martina-plantijn/martina-plantijn-bold-italic.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "Liga Noto Sans Mono";
+    src: url("fonts/LigaNotoSansMono-Medium.woff2") format("woff2");
+    font-weight: 500;
+}
+
+/* Design tokens moved to Tailwind config */
+/* Base */
+
+html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+}
+
+body {
+    font-family: var(--tw-prose-font-serif, "Martina Plantijn", serif);
+    font-feature-settings: normal;
+    font-variant-ligatures: contextual common-ligatures;
+    background-color: #fdfdfd;
+    color: #18181b;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Horizontal rule */
+
+hr {
+    border-top: 1px solid #e4e4e7;
+    opacity: 1;
+}
+
+.footer hr {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Landing content */
+
+.landing>p:last-child {
+    margin-bottom: 0;
+}
+
+.content .middot:before {
+    margin: 0 3px;
+    content: "\00B7";
+}
+
+.content twitterwidget {
+    margin: auto;
+}
+
+/* Blog post images: centered, boxed */
+
+/* pandoc < 3.0 */
+.content .figure img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.content .caption {
+    font-family: "Instrument Sans", sans-serif;
+    font-feature-settings: "ss01", "ss04", "ss07", "ss09";
+    font-weight: 400;
+    font-size: 0.9375rem;
+    color: #71717a;
+    text-align: center;
+    margin-top: 0.75rem;
+}
+
+/* pandoc >= 3.0 */
+.content .float img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.content .figcaption {
+    font-family: "Instrument Sans", sans-serif;
+    font-feature-settings: "ss01", "ss04", "ss07", "ss09";
+    font-weight: 400;
+    font-size: 0.9375rem;
+    color: #71717a;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.content .prose figure {
+    background: #fdfdfd;
+}
+
+/* Tags page */
+
+.content .taxonomy-term {
+    font-family: "Instrument Sans", sans-serif;
+    font-feature-settings: "ss01", "ss04", "ss07", "ss09";
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: normal;
+    margin-bottom: 1.125rem;
+}
+
+/* Previous and next blog post navigation */
+
+.pagination-nav .navigation-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.pagination-nav .btn-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    text-decoration: none;
+    padding: 1.25rem;
+    font-family: "Instrument Sans", sans-serif;
+    font-feature-settings: "ss01", "ss04", "ss07", "ss09";
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: normal;
+    border: 1px solid #e4e4e7;
+    border-radius: 0.4rem;
+    background-color: #fdfdfd;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.pagination-nav .btn-nav:hover {
+    background-color: #fafafa;
+    border-color: #d4d4d8;
+}
+
+.pagination-nav .btn-nav:active {
+    background-color: #f4f4f5;
+    border-color: #a1a1aa;
+}
+
+.pagination-nav .btn-next .btn-content {
+    text-align: right;
+}
+
+.pagination-nav .pagination-nav-sublabel {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #71717a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.15s ease-in-out;
+}
+
+.pagination-nav .pagination-nav-label {
+    font-size: 0.9375rem;
+    font-weight: 450;
+    color: #52525b;
+    margin-top: 0.375rem;
+    transition: color 0.15s ease-in-out;
+}
+
+.pagination-nav .btn-nav:hover .pagination-nav-sublabel,
+.pagination-nav .btn-nav:hover .pagination-nav-label {
+    color: #1c1c1c;
+}
+
+/* Utterances comments */
+
+.utterances {
+    max-width: 100%;
+}
+
+/* Partial: Footer */
+
+.footer {
+    font-family: "Instrument Sans", sans-serif;
+    font-feature-settings: "ss01", "ss04", "ss07", "ss09";
+    font-weight: 500;
+    font-size: 1.0625rem;
+    letter-spacing: -0.3px;
+}
+
+.footer a {
+    color: #71717a;
+    text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus {
+    color: #1c1c1c;
+}
+
+.footer a:first-child {
+    margin-left: 0;
+}
+
+.footer a:last-child {
+    margin-right: 6px;
+}
+
+.site-copyright {
+    color: #71717a;
+    min-width: 16em;
+}
+
+.social-links ul {
+    list-style-type: none;
+    padding: 0;
+    line-height: 2;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links li:not(:last-child)::after {
+    content: '';
+    color: #71717a;
+    margin: 0 8px;
+}
+
+.footer a .svg-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    fill: #71717a;
+    transition: fill 0.2s ease-in-out;
+}
+
+.footer a:hover .svg-icon,
+.footer a:focus .svg-icon {
+    fill: #1c1c1c;
+}
+
+/* Responsive */
+
+@media (max-width: 767.98px) {
+    html {
+        font-size: 1rem;
+    }
+
+    .content .blog-post-title {
+        font-size: 2rem;
+    }
+}
