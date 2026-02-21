@@ -5,7 +5,7 @@
         {{ .Date.Format "Jan 02" }}
     </time>
     <a href="{{ .Permalink }}"
-        class="text-ink hover:text-accent font-medium leading-snug transition-colors outline-none decoration-transparent hover:decoration-accent decoration-1 underline-offset-4 {{ if .Site.Params.progressively }} progressively {{ end }}">
+        class="text-ink hover:text-accent leading-snug transition-colors outline-none decoration-transparent hover:decoration-accent decoration-1 underline-offset-4 {{ if .Site.Params.progressively }} progressively {{ end }}">
         {{ .Title }}
     </a>
 </li>
