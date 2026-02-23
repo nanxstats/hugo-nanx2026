@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .tufte-grid {
+    display: grid;
+    grid-template-columns: 1fr min(65ch, 100%) 1fr;
+    column-gap: 2rem;
+  }
+
+  .tufte-grid>* {
+    grid-column: 2;
+  }
+
+  .tufte-grid>.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .tufte-grid>.margin-note {
+    grid-column: 3;
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: #52525b;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .tufte-grid {
+      grid-template-columns: 1rem 1fr 1rem;
+    }
+
+    .tufte-grid>.margin-note {
+      grid-column: 2;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid #e4e4e7;
+    }
+  }
+}
