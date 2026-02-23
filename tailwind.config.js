@@ -1,0 +1,121 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./layouts/**/*.html",
+    "../../layouts/**/*.html",
+    "../../content/**/*.md",
+    "../../content/**/*.html",
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        serif: [
+          '"Martina Plantijn"',
+          "Georgia",
+          "Cambria",
+          '"Times New Roman"',
+          "Times",
+          "serif",
+        ],
+        sans: [
+          '"Instrument Sans"',
+          "system-ui",
+          "-apple-system",
+          '"Segoe UI"',
+          "Roboto",
+          '"Helvetica Neue"',
+          "Arial",
+          "sans-serif",
+        ],
+        mono: [
+          '"Liga Noto Sans Mono"',
+          "ui-monospace",
+          "SFMono-Regular",
+          '"SF Mono"',
+          "Menlo",
+          "Consolas",
+          "monospace",
+        ],
+      },
+      colors: {
+        paper: "#fdfdfd",
+        ink: "#1c1c1c",
+        accent: "#991b1b",
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "none",
+            color: "#1c1c1c",
+            "--tw-prose-body": "#1c1c1c",
+            "--tw-prose-headings": "#1c1c1c",
+            "--tw-prose-links": "#991b1b",
+            "--tw-prose-bold": "#111827",
+            "--tw-prose-counters": "#71717a",
+            "--tw-prose-bullets": "#d4d4d8",
+            "--tw-prose-hr": "#e4e4e7",
+            "--tw-prose-quotes": "#1c1c1c",
+            "--tw-prose-quote-borders": "#d4d4d8",
+            "--tw-prose-captions": "#71717a",
+            "--tw-prose-code": "#1c1c1c",
+            "--tw-prose-pre-code": "#1c1c1c",
+            "--tw-prose-pre-bg": "#fdfdfd",
+            "--tw-prose-th-borders": "#d4d4d8",
+            "--tw-prose-td-borders": "#e4e4e7",
+            pre: {
+              color: "#1c1c1c",
+              backgroundColor: "#fdfdfd !important",
+              border: "1px solid #e4e4e7",
+            },
+            a: {
+              color: "#991b1b",
+              textDecoration: "none",
+              fontWeight: "400",
+              borderBottom: "1px solid transparent",
+              transition: "border-color 0.2s ease, color 0.2s ease",
+            },
+            "a:hover": {
+              color: "#991b1b !important",
+              borderBottomColor: "#991b1b !important",
+            },
+            h1: {
+              fontFamily: '"Instrument Sans", sans-serif',
+              fontWeight: "500",
+              letterSpacing: "-0.025em",
+            },
+            h2: {
+              fontFamily: '"Instrument Sans", sans-serif',
+              fontWeight: "500",
+              letterSpacing: "-0.025em",
+              marginTop: "2em",
+            },
+            h3: {
+              fontFamily: '"Instrument Sans", sans-serif',
+              fontWeight: "500",
+            },
+            h4: {
+              fontFamily: '"Instrument Sans", sans-serif',
+              fontWeight: "500",
+            },
+            blockquote: {
+              fontStyle: "italic",
+              fontWeight: "400",
+              borderLeftWidth: "2px",
+            },
+            "code::before": { content: "none" },
+            "code::after": { content: "none" },
+            ":not(pre) > code": {
+              fontWeight: "400",
+              color: "#1c1c1c !important",
+              backgroundColor: "#f4f4f5 !important",
+              padding: "0.2em 0.4em",
+              borderRadius: "0.25rem",
+              fontSize: "0.875em",
+            },
+          },
+        },
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/typography")],
+};
