@@ -9,13 +9,13 @@
             <div class="text-zinc-500 font-sans text-sm tracking-wide">
                 {{ if not .Params.noauthor }}
                 {{ if .Params.author }}
-                <span class="author" title="{{ .Params.Author }}">
+                <span class="author mr-2" title="{{ .Params.Author }}">
                     {{ .Params.author }}
                 </span>
                 {{ end }}
                 {{ end }}
 
-                <span class="date middot tabular-nums" title='{{ .Date.Format "Mon Jan 2 2006 15:04:05 MST" }}'>
+                <span class="date middot tabular-nums mr-2" title='{{ .Date.Format "Mon Jan 2 2006 15:04:05 MST" }}'>
                     {{ .Date.Format "January 2, 2006" }}
                 </span>
 
