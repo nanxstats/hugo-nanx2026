@@ -47,6 +47,7 @@ module.exports = {
           css: {
             maxWidth: "none",
             color: "#1c1c1c",
+            fontSize: "1.0625rem",
             "--tw-prose-body": "#1c1c1c",
             "--tw-prose-headings": "#1c1c1c",
             "--tw-prose-links": "#991b1b",
