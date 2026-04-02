@@ -99,9 +99,17 @@ module.exports = {
               fontWeight: "500",
             },
             blockquote: {
-              fontStyle: "italic",
+              fontFamily: '"Instrument Sans", sans-serif',
+              fontStyle: "normal",
               fontWeight: "400",
+              fontSize: "0.9375rem",
               borderLeftWidth: "2px",
+            },
+            "blockquote p:first-of-type::before": {
+              content: "none",
+            },
+            "blockquote p:last-of-type::after": {
+              content: "none",
             },
             "code::before": { content: "none" },
             "code::after": { content: "none" },
