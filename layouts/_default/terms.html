@@ -7,7 +7,7 @@
     </div>
 
     <div class="mt-8 pt-8">
-        <h1 class="text-3xl lg:text-4xl font-sans tracking-tight text-ink font-medium mb-8">{{ .Title }}</h1>
+        <h1 class="text-3xl lg:text-4xl font-sans tracking-tight text-ink font-semibold mb-8">{{ .Title }}</h1>
         <div class="flex flex-wrap gap-3">
             {{ range .Data.Terms.Alphabetical }}
             <a href="{{ .Page.Permalink }}"

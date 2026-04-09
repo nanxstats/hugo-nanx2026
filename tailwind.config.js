@@ -81,22 +81,22 @@ module.exports = {
             },
             h1: {
               fontFamily: '"Instrument Sans", sans-serif',
-              fontWeight: "500",
+              fontWeight: "600",
               letterSpacing: "-0.025em",
             },
             h2: {
               fontFamily: '"Instrument Sans", sans-serif',
-              fontWeight: "500",
+              fontWeight: "600",
               letterSpacing: "-0.025em",
               marginTop: "2em",
             },
             h3: {
               fontFamily: '"Instrument Sans", sans-serif',
-              fontWeight: "500",
+              fontWeight: "600",
             },
             h4: {
               fontFamily: '"Instrument Sans", sans-serif',
-              fontWeight: "500",
+              fontWeight: "600",
             },
             blockquote: {
               fontFamily: '"Instrument Sans", sans-serif',
