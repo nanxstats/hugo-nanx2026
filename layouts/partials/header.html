@@ -1,12 +1,12 @@
-<header class="py-8 lg:py-12 text-sm font-sans tracking-wide max-w-[71ch] mx-auto w-full px-4 sm:px-6">
+<header class="py-8 lg:py-12 text-sm font-sans font-[450] tracking-wide max-w-[71ch] mx-auto w-full px-4 sm:px-6">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-0">
-        <a href="{{ .Site.BaseURL }}" class="font-medium text-ink hover:text-accent transition-colors">
+        <a href="{{ .Site.BaseURL }}" class="font-[550] text-ink hover:text-accent transition-colors">
             {{ .Site.Params.pagetitle }}
         </a>
         <nav class="flex flex-wrap gap-4 sm:gap-6 text-zinc-600">
             {{ $currentPath := .RelPermalink }}
             {{ range .Site.Menus.primary.ByWeight }}
-            <a class="{{ if or (eq .URL $currentPath) (strings.HasPrefix $currentPath .URL) }}text-ink font-medium{{ else }}hover:text-accent transition-colors{{ end }}"
+            <a class="{{ if or (eq .URL $currentPath) (strings.HasPrefix $currentPath .URL) }}text-ink font-[550]{{ else }}hover:text-accent transition-colors{{ end }}"
                 href="{{ .URL }}">
                 {{ .Name }}
             </a>

@@ -1,11 +1,11 @@
 <li>
 <li class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 mb-4 relative">
     <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'
-        class="text-zinc-500 font-sans text-sm tracking-wide shrink-0 sm:w-24 tabular-nums">
+        class="font-sans font-[450] text-zinc-500 text-sm tracking-wide shrink-0 sm:w-24 tabular-nums">
         {{ .Date.Format "2006-01-02" }}
     </time>
     <a href="{{ .Permalink }}"
-        class="text-ink hover:text-accent leading-snug transition-colors outline-none decoration-transparent hover:decoration-accent decoration-1 underline-offset-4 {{ if .Site.Params.progressively }} progressively {{ end }}">
+        class="font-sans font-[450] hover:text-accent leading-snug transition-colors outline-none decoration-transparent hover:decoration-accent decoration-1 underline-offset-4 {{ if .Site.Params.progressively }} progressively {{ end }}">
         {{ .Title }}
     </a>
 </li>
