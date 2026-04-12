@@ -6,7 +6,7 @@
         <header class="mb-14">
             <h1 class="text-3xl lg:text-4xl font-sans tracking-tight text-ink font-semibold mb-4">{{ .Title }}</h1>
 
-            <div class="text-zinc-500 font-sans text-sm tracking-wide">
+            <div class="text-zinc-500 font-sans font-[450] text-sm tracking-wide">
                 {{ if not .Params.noauthor }}
                 {{ if .Params.author }}
                 <span class="author mr-2" title="{{ .Params.Author }}">
@@ -26,14 +26,14 @@
                 <div class="mt-8 flex flex-wrap gap-2">
                     {{ range .Params.tags }}
                     <a href="{{ "tags/" | relLangURL }}{{ . | urlize }}"
-                        class="inline-flex items-center px-3 py-1 rounded-full bg-zinc-100 text-zinc-600 hover:bg-zinc-200 hover:text-ink transition-colors text-xs font-medium tracking-wide">
+                        class="inline-flex items-center px-3 py-1 rounded-full bg-zinc-100 text-zinc-600 hover:bg-zinc-200 hover:text-ink transition-colors text-xs font-[550] tracking-wide">
                         {{ . }}
                     </a>
                     {{ end }}
                     {{ if isset .Params "hacker_news_id" }}
                     {{ if ne .Params.hacker_news_id "" }}
                     <a href="https://news.ycombinator.com/item?id={{ .Params.hacker_news_id }}"
-                        class="inline-flex items-center px-3 py-1 rounded-full bg-accent text-white hover:bg-red-800 transition-colors text-xs font-medium tracking-wide">
+                        class="inline-flex items-center px-3 py-1 rounded-full bg-accent text-white hover:bg-red-800 transition-colors text-xs font-[550] tracking-wide">
                         HN
                     </a>
                     {{ end }}
@@ -41,7 +41,7 @@
                     {{ if isset .Params "lobsters_id" }}
                     {{ if ne .Params.lobsters_id "" }}
                     <a href="https://lobste.rs/s/{{ .Params.lobsters_id }}"
-                        class="inline-flex items-center px-3 py-1 rounded-full bg-accent text-white hover:bg-red-800 transition-colors text-xs font-medium tracking-wide">
+                        class="inline-flex items-center px-3 py-1 rounded-full bg-accent text-white hover:bg-red-800 transition-colors text-xs font-[550] tracking-wide">
                         Lobsters
                     </a>
                     {{ end }}
