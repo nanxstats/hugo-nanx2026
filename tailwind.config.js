@@ -28,7 +28,7 @@ module.exports = {
           "sans-serif",
         ],
         mono: [
-          '"Liga Noto Sans Mono"',
+          '"Liga Paper Mono"',
           "ui-monospace",
           "SFMono-Regular",
           '"SF Mono"',
