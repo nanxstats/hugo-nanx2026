@@ -101,7 +101,7 @@ module.exports = {
             blockquote: {
               fontFamily: '"Instrument Sans", sans-serif',
               fontStyle: "normal",
-              fontWeight: "400",
+              fontWeight: "450",
               fontSize: "0.9375rem",
               borderLeftWidth: "2px",
             },
@@ -114,7 +114,7 @@ module.exports = {
             "code::before": { content: "none" },
             "code::after": { content: "none" },
             ":not(pre) > code": {
-              fontWeight: "400",
+              fontWeight: "500",
               color: "#1c1c1c !important",
               backgroundColor: "#f4f4f5 !important",
               padding: "0.1em 0.4em 0.2em 0.4em",
