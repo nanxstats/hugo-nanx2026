@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ::selection {
+    background-color: rgba(153, 27, 27, 0.12);
+    /* accent @ 12% */
+    color: #1c1c1c;
+    /* keep link text readable */
+  }
+
+  ::-moz-selection {
+    background-color: rgba(153, 27, 27, 0.12);
+    color: #1c1c1c;
+  }
+}
+
 @layer utilities {
   .tufte-grid {
     display: grid;
