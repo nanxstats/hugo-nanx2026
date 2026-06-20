@@ -110,7 +110,9 @@
     </script>
     {{ end }}
 
-    {{ template "_internal/google_analytics_async.html" . }}
+    {{ with .Site.Config.Services.GoogleAnalytics.ID }}
+    {{ template "_internal/google_analytics.html" $ }}
+    {{ end }}
     {{ if .Site.Params.uselatex }}
     {{ partial "footer_mathjax.html" . }}
     {{ end }}

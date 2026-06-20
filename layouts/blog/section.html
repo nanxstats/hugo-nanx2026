@@ -1,22 +1,24 @@
 {{ define "main" }}
 {{ partial "header" . }}
 
-<main class="content my-10 max-w-[69ch] mx-auto w-full px-4 sm:px-6">
+<main class="content my-10 lg:my-14 max-w-[69ch] mx-auto w-full px-4 sm:px-6">
     <div class="prose prose-zinc">
         {{ partial "content" . }}
     </div>
 
-    <div class="mt-8 pt-1">
-        <ul class="list-none pl-0 space-y-8">
+    <div class="mt-12">
+        <div class="space-y-11">
             {{ range .Data.Pages.GroupByDate "2006" "desc"}}
-            <li class="font-sans text-xl font-medium text-ink tracking-tight mb-4">{{ .Key }}</li>
-            <div class="space-y-6">
-                {{ range sort .Pages "Date" "desc" }}
-                {{ partial "list" . }}
-                {{ end }}
-            </div>
+            <section>
+                <h2 class="mb-4 font-sans text-sm font-semibold tracking-wide text-zinc-500">{{ .Key }}</h2>
+                <ol class="list-none p-0 m-0">
+                    {{ range sort .Pages "Date" "desc" }}
+                    {{ partial "list" . }}
+                    {{ end }}
+                </ol>
+            </section>
             {{ end }}
-        </ul>
+        </div>
     </div>
 </main>
 
