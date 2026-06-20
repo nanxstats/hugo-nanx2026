@@ -1,8 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@source "../layouts";
+@source "../../layouts";
+@source "../../../content";
+
+@theme {
+  --font-serif: "Martina Plantijn", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Liga Paper Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-paper: #fdfdfd;
+  --color-ink: #1c1c1c;
+  --color-accent: #991b1b;
+
+  --container-content: 69ch;
+}
 
 @layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
   ::selection {
     background-color: rgba(153, 27, 27, 0.12);
     /* accent @ 12% */
@@ -16,22 +51,97 @@
   }
 }
 
-@layer utilities {
-  .tufte-grid {
-    display: grid;
-    grid-template-columns: 1fr min(65ch, 100%) 1fr;
-    column-gap: 2rem;
-  }
+.prose {
+  max-width: none;
+  color: #1c1c1c;
+  font-size: 1.0625rem;
+  --tw-prose-body: #1c1c1c;
+  --tw-prose-headings: #1c1c1c;
+  --tw-prose-links: #991b1b;
+  --tw-prose-bold: #111827;
+  --tw-prose-counters: #71717a;
+  --tw-prose-bullets: #d4d4d8;
+  --tw-prose-hr: #e4e4e7;
+  --tw-prose-quotes: #1c1c1c;
+  --tw-prose-quote-borders: #d4d4d8;
+  --tw-prose-captions: #71717a;
+  --tw-prose-code: #1c1c1c;
+  --tw-prose-pre-code: #1c1c1c;
+  --tw-prose-pre-bg: #fdfdfd;
+  --tw-prose-th-borders: #d4d4d8;
+  --tw-prose-td-borders: #e4e4e7;
+}
 
-  .tufte-grid>* {
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  color: #991b1b;
+  text-decoration: none;
+  font-weight: 400;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.prose :where(a:hover):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  color: #991b1b !important;
+  border-bottom-color: #991b1b !important;
+}
+
+.prose :where(h1, h2, h3, h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 600;
+}
+
+.prose :where(h1, h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  letter-spacing: -0.025em;
+}
+
+.prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 2em;
+}
+
+.prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-family: "Instrument Sans", sans-serif;
+  font-style: normal;
+  font-weight: 450;
+  font-size: 0.9375rem;
+  border-left-width: 2px;
+}
+
+.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+.prose :where(blockquote p:last-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::after,
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+.prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+  content: none;
+}
+
+.prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  color: #1c1c1c;
+  background-color: #fdfdfd !important;
+  border: 1px solid #e4e4e7;
+}
+
+.prose :where(:not(pre)>code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-weight: 500;
+  color: #1c1c1c !important;
+  background-color: #f4f4f5 !important;
+  padding: 0.1em 0.4em 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+}
+
+@utility tufte-grid {
+  display: grid;
+  grid-template-columns: 1fr min(65ch, 100%) 1fr;
+  column-gap: 2rem;
+
+  >* {
     grid-column: 2;
   }
 
-  .tufte-grid>.full-width {
+  >.full-width {
     grid-column: 1 / -1;
   }
 
-  .tufte-grid>.margin-note {
+  >.margin-note {
     grid-column: 3;
     font-family: "Instrument Sans", sans-serif;
     font-size: 0.875rem;
@@ -41,11 +151,9 @@
   }
 
   @media (max-width: 1024px) {
-    .tufte-grid {
-      grid-template-columns: 1rem 1fr 1rem;
-    }
+    grid-template-columns: 1rem 1fr 1rem;
 
-    .tufte-grid>.margin-note {
+    >.margin-note {
       grid-column: 2;
       margin-top: 0.5rem;
       margin-bottom: 1rem;
