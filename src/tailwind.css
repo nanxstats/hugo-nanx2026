@@ -210,8 +210,8 @@
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-top: 1.15rem;
+  margin-bottom: 2.5rem;
   padding-left: 0;
   list-style: none;
 }
@@ -219,9 +219,9 @@
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li {
   position: relative;
   margin: 0;
-  padding: 1rem 0 1.1rem;
+  padding: 1.3rem 0 1.4rem;
   color: #52525b;
-  line-height: 1.55;
+  line-height: 1.62;
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li+li {
@@ -229,15 +229,27 @@
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child {
+  display: inline-block;
+  margin-bottom: 0.25rem;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 1.0625rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 550;
   line-height: 1.35;
   text-wrap: balance;
   color: #1c1c1c;
 }
 
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child:hover,
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child:focus-visible,
+.catalog-page .catalog-table-value>a:first-child:hover,
+.catalog-page .catalog-table-value>a:first-child:focus-visible {
+  color: #991b1b !important;
+  border-bottom-color: transparent !important;
+}
+
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:not(:first-child) {
+  display: inline-block;
+  margin-top: 0.35rem;
   font-family: "Instrument Sans", sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -263,7 +275,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.25rem;
-  padding: 1rem 0 1.1rem;
+  padding: 1.3rem 0 1.4rem;
 }
 
 .catalog-page .catalog-table-row+.catalog-table-row {
@@ -280,13 +292,15 @@
 
 .catalog-page .catalog-table-value {
   color: #52525b;
-  line-height: 1.55;
+  line-height: 1.62;
 }
 
 .catalog-page .catalog-table-value>a:first-child {
+  display: inline-block;
+  margin-bottom: 0.25rem;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 1.0625rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 550;
   line-height: 1.35;
   text-wrap: balance;
   color: #1c1c1c;
@@ -310,6 +324,14 @@
   .catalog-page .catalog-table-row {
     grid-template-columns: 14ch 1fr;
     gap: 1rem;
+  }
+}
+
+@media (min-width: 40rem) {
+
+  .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child,
+  .catalog-page .catalog-table-value>a:first-child {
+    font-size: 1.125rem;
   }
 }
 
