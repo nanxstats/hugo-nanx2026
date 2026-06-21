@@ -128,6 +128,191 @@
   font-size: 0.85em;
 }
 
+.catalog-page {
+  font-size: 1rem;
+}
+
+.catalog-page .catalog-nav {
+  margin-bottom: 3rem;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid #e4e4e7;
+  border-radius: 0;
+  background: transparent;
+}
+
+.catalog-page .catalog-nav>div {
+  gap: 0;
+}
+
+.catalog-page .catalog-nav a {
+  min-height: 3rem;
+  padding: 0.75rem 0;
+  border-width: 0;
+  border-bottom: 1px solid #e4e4e7;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  --tw-translate-x: 0 !important;
+  --tw-translate-y: 0 !important;
+  translate: var(--tw-translate-x) var(--tw-translate-y) !important;
+  transform: none !important;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.catalog-page .catalog-nav a:hover {
+  background: #fafafa;
+  border-bottom-color: #e4e4e7;
+  box-shadow: none !important;
+  --tw-translate-x: 0 !important;
+  --tw-translate-y: 0 !important;
+  translate: var(--tw-translate-x) var(--tw-translate-y) !important;
+  transform: none !important;
+}
+
+.catalog-page .catalog-nav a:active {
+  background: #f4f4f5;
+  --tw-translate-x: 0 !important;
+  --tw-translate-y: 0 !important;
+  translate: var(--tw-translate-x) var(--tw-translate-y) !important;
+  transform: none !important;
+}
+
+.catalog-page .catalog-nav i {
+  color: #71717a;
+}
+
+.catalog-page .catalog-nav span {
+  color: #3f3f46;
+  font-size: 0.8125rem;
+}
+
+.catalog-page :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 3.25rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #52525b;
+}
+
+.catalog-page :where(h2:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 0;
+}
+
+.catalog-page :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #3f3f46;
+}
+
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li {
+  position: relative;
+  margin: 0;
+  padding: 1rem 0 1.1rem;
+  color: #52525b;
+  line-height: 1.55;
+}
+
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li+li {
+  border-top: 1px solid #e4e4e7;
+}
+
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-wrap: balance;
+  color: #1c1c1c;
+}
+
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:not(:first-child) {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #52525b;
+}
+
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:not(:first-child):hover,
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:not(:first-child):focus-visible {
+  color: #991b1b !important;
+  border-bottom-color: #991b1b !important;
+}
+
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li em {
+  color: #3f3f46;
+}
+
+.catalog-page .catalog-table {
+  margin-top: 1rem;
+  margin-bottom: 2.75rem;
+}
+
+.catalog-page .catalog-table-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+  padding: 1rem 0 1.1rem;
+}
+
+.catalog-page .catalog-table-row+.catalog-table-row {
+  border-top: 1px solid #e4e4e7;
+}
+
+.catalog-page .catalog-table-key {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #3f3f46;
+}
+
+.catalog-page .catalog-table-value {
+  color: #52525b;
+  line-height: 1.55;
+}
+
+.catalog-page .catalog-table-value>a:first-child {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-wrap: balance;
+  color: #1c1c1c;
+}
+
+.catalog-page .catalog-table-value span,
+.catalog-page .catalog-table-value span a {
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 450;
+  color: #52525b;
+}
+
+.catalog-page .catalog-table-value a:hover,
+.catalog-page .catalog-table-value a:focus-visible {
+  color: #991b1b !important;
+  border-bottom-color: #991b1b !important;
+}
+
+@media (min-width: 40rem) {
+  .catalog-page .catalog-table-row {
+    grid-template-columns: 14ch 1fr;
+    gap: 1rem;
+  }
+}
+
 @utility tufte-grid {
   display: grid;
   grid-template-columns: 1fr min(65ch, 100%) 1fr;

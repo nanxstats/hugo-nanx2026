@@ -10,7 +10,7 @@
         </div>
         {{ end }}
     </header>
-    <article class="prose prose-zinc max-w-none">
+    <article class="prose prose-zinc max-w-none{{ if .Params.catalog }} catalog-page{{ end }}">
         {{ partial "content" . }}
     </article>
 </main>
