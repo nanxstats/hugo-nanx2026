@@ -255,9 +255,7 @@
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child:hover,
-.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child:focus-visible,
-.catalog-page .catalog-table-value>a:first-child:hover,
-.catalog-page .catalog-table-value>a:first-child:focus-visible {
+.catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child:focus-visible {
   color: #991b1b !important;
   border-bottom-color: transparent !important;
 }
@@ -281,71 +279,9 @@
   color: #3f3f46;
 }
 
-.catalog-page .catalog-table {
-  margin-top: 1rem;
-  margin-bottom: 2.75rem;
-}
-
-.catalog-page .catalog-table-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.25rem;
-  padding: 1.3rem 0 1.4rem;
-}
-
-.catalog-page .catalog-table-row+.catalog-table-row {
-  border-top: 1px solid #e4e4e7;
-}
-
-.catalog-page .catalog-table-key {
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 600;
-  line-height: 1.45;
-  color: #3f3f46;
-}
-
-.catalog-page .catalog-table-value {
-  color: #52525b;
-  line-height: 1.62;
-}
-
-.catalog-page .catalog-table-value>a:first-child {
-  display: inline-block;
-  margin-bottom: 0.25rem;
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 550;
-  line-height: 1.35;
-  text-wrap: balance;
-  color: #1c1c1c;
-}
-
-.catalog-page .catalog-table-value span,
-.catalog-page .catalog-table-value span a {
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 450;
-  color: #52525b;
-}
-
-.catalog-page .catalog-table-value a:hover,
-.catalog-page .catalog-table-value a:focus-visible {
-  color: #991b1b !important;
-  border-bottom-color: #991b1b !important;
-}
-
-@media (min-width: 40rem) {
-  .catalog-page .catalog-table-row {
-    grid-template-columns: 14ch 1fr;
-    gap: 1rem;
-  }
-}
-
 @media (min-width: 40rem) {
 
-  .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child,
-  .catalog-page .catalog-table-value>a:first-child {
+  .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child {
     font-size: 1.125rem;
   }
 }
