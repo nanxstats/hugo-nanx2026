@@ -11,7 +11,7 @@
   --font-sans: "Scoutie Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "Liga Paper Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
-  --color-paper: #fdfdfd;
+  --color-paper: color-mix(in srgb, var(--color-zinc-50) 40%, white);
   --color-ink: #1c1c1c;
   --color-accent: #991b1b;
 
@@ -25,12 +25,12 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--color-zinc-200, currentColor);
   }
 
   input::placeholder,
   textarea::placeholder {
-    color: var(--color-gray-400);
+    color: var(--color-zinc-400);
   }
 
   button:not(:disabled),
@@ -39,15 +39,14 @@
   }
 
   ::selection {
-    background-color: rgba(153, 27, 27, 0.12);
-    /* accent @ 12% */
-    color: #1c1c1c;
+    background-color: color-mix(in srgb, var(--color-accent) 12%, transparent);
+    color: var(--color-ink);
     /* keep link text readable */
   }
 
   ::-moz-selection {
-    background-color: rgba(153, 27, 27, 0.12);
-    color: #1c1c1c;
+    background-color: color-mix(in srgb, var(--color-accent) 12%, transparent);
+    color: var(--color-ink);
   }
 }
 
@@ -68,27 +67,27 @@
 
 .prose {
   max-width: none;
-  color: #1c1c1c;
+  color: var(--color-ink);
   font-size: 1.0625rem;
-  --tw-prose-body: #1c1c1c;
-  --tw-prose-headings: #1c1c1c;
-  --tw-prose-links: #991b1b;
-  --tw-prose-bold: #111827;
-  --tw-prose-counters: #71717a;
-  --tw-prose-bullets: #d4d4d8;
-  --tw-prose-hr: #e4e4e7;
-  --tw-prose-quotes: #1c1c1c;
-  --tw-prose-quote-borders: #d4d4d8;
-  --tw-prose-captions: #71717a;
-  --tw-prose-code: #1c1c1c;
-  --tw-prose-pre-code: #1c1c1c;
-  --tw-prose-pre-bg: #fdfdfd;
-  --tw-prose-th-borders: #d4d4d8;
-  --tw-prose-td-borders: #e4e4e7;
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-zinc-500);
+  --tw-prose-bullets: var(--color-zinc-300);
+  --tw-prose-hr: var(--color-zinc-200);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-zinc-300);
+  --tw-prose-captions: var(--color-zinc-500);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-pre-code: var(--color-ink);
+  --tw-prose-pre-bg: var(--color-paper);
+  --tw-prose-th-borders: var(--color-zinc-300);
+  --tw-prose-td-borders: var(--color-zinc-200);
 }
 
 .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  color: #991b1b;
+  color: var(--color-accent);
   text-decoration: none;
   font-weight: 400;
   border-bottom: 1px solid transparent;
@@ -96,8 +95,8 @@
 }
 
 .prose :where(a:hover):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  color: #991b1b !important;
-  border-bottom-color: #991b1b !important;
+  color: var(--color-accent) !important;
+  border-bottom-color: var(--color-accent) !important;
 }
 
 .prose :where(h1, h2, h3, h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
@@ -129,15 +128,15 @@
 }
 
 .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  color: #1c1c1c;
-  background-color: #fdfdfd !important;
-  border: 1px solid #e4e4e7;
+  color: var(--color-ink);
+  background-color: var(--color-paper) !important;
+  border: 1px solid var(--color-zinc-200);
 }
 
 .prose :where(:not(pre)>code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   font-weight: 500;
-  color: #1c1c1c !important;
-  background-color: #f4f4f5 !important;
+  color: var(--color-ink) !important;
+  background-color: var(--color-zinc-100) !important;
   padding: 0.1em 0.4em 0.2em 0.4em;
   border-radius: 0.25rem;
   font-size: 0.85em;
@@ -151,7 +150,7 @@
   margin-bottom: 3rem;
   padding: 0;
   border: 0;
-  border-top: 1px solid #e4e4e7;
+  border-top: 1px solid var(--color-zinc-200);
   border-radius: 0;
   background: transparent;
 }
@@ -164,7 +163,7 @@
   min-height: 3rem;
   padding: 0.75rem 0;
   border-width: 0;
-  border-bottom: 1px solid #e4e4e7;
+  border-bottom: 1px solid var(--color-zinc-200);
   border-radius: 0;
   background: transparent;
   box-shadow: none;
@@ -176,8 +175,8 @@
 }
 
 .catalog-page .catalog-nav a:hover {
-  background: #fafafa;
-  border-bottom-color: #e4e4e7;
+  background: var(--color-zinc-50);
+  border-bottom-color: var(--color-zinc-200);
   box-shadow: none !important;
   --tw-translate-x: 0 !important;
   --tw-translate-y: 0 !important;
@@ -186,7 +185,7 @@
 }
 
 .catalog-page .catalog-nav a:active {
-  background: #f4f4f5;
+  background: var(--color-zinc-100);
   --tw-translate-x: 0 !important;
   --tw-translate-y: 0 !important;
   translate: var(--tw-translate-x) var(--tw-translate-y) !important;
@@ -194,11 +193,11 @@
 }
 
 .catalog-page .catalog-nav i {
-  color: #71717a;
+  color: var(--color-zinc-500);
 }
 
 .catalog-page .catalog-nav span {
-  color: #3f3f46;
+  color: var(--color-zinc-700);
   font-size: 0.8125rem;
 }
 
@@ -209,7 +208,7 @@
   line-height: 1.4;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #52525b;
+  color: var(--color-zinc-600);
 }
 
 .catalog-page :where(h2:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
@@ -221,7 +220,7 @@
   margin-bottom: 0.75rem;
   font-size: 0.9375rem;
   line-height: 1.45;
-  color: #3f3f46;
+  color: var(--color-zinc-700);
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
@@ -235,12 +234,12 @@
   position: relative;
   margin: 0;
   padding: 1.3rem 0 1.4rem;
-  color: #52525b;
+  color: var(--color-zinc-600);
   line-height: 1.62;
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li+li {
-  border-top: 1px solid #e4e4e7;
+  border-top: 1px solid var(--color-zinc-200);
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child {
@@ -251,12 +250,12 @@
   font-weight: 550;
   line-height: 1.35;
   text-wrap: balance;
-  color: #1c1c1c;
+  color: var(--color-ink);
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child:hover,
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:first-child:focus-visible {
-  color: #991b1b !important;
+  color: var(--color-accent) !important;
   border-bottom-color: transparent !important;
 }
 
@@ -266,17 +265,17 @@
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 500;
-  color: #52525b;
+  color: var(--color-zinc-600);
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:not(:first-child):hover,
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li>a:not(:first-child):focus-visible {
-  color: #991b1b !important;
-  border-bottom-color: #991b1b !important;
+  color: var(--color-accent) !important;
+  border-bottom-color: var(--color-accent) !important;
 }
 
 .catalog-page> :where(ul, ol):not(:where([class~="not-prose"], [class~="not-prose"] *))>li em {
-  color: #3f3f46;
+  color: var(--color-zinc-700);
 }
 
 @media (min-width: 40rem) {
@@ -304,7 +303,7 @@
     font-family: var(--font-sans);
     font-size: 0.875rem;
     line-height: 1.4;
-    color: #52525b;
+    color: var(--color-zinc-600);
     margin-top: 0.25rem;
   }
 
@@ -316,7 +315,7 @@
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       padding-left: 1rem;
-      border-left: 2px solid #e4e4e7;
+      border-left: 2px solid var(--color-zinc-200);
     }
   }
 }
