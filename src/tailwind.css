@@ -155,8 +155,17 @@
   background: transparent;
 }
 
+/* Keep the catalog layout independent of utilities scanned from site content. */
 .catalog-page .catalog-nav>div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
+}
+
+@media (min-width: 40rem) {
+  .catalog-page .catalog-nav>div {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .catalog-page .catalog-nav a {
